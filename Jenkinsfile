@@ -1,15 +1,17 @@
-pipeline{
-    agent Any
+pipeline {
+    agent any
+
     stages {
-        stage('Build Image'){
+        stage('Build Image') {
             steps {
                 sh '/usr/local/bin/docker build -t pytest-framework .'
             }
-       }
-        stage('Run test'){
-                steps {
-                    sh '/usr/local/bin/docker run --rm pytest-framework .'
-                }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '/usr/local/bin/docker run --rm pytest-framework'
+            }
         }
     }
 }
