@@ -14,7 +14,13 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'docker run --rm pytest-framework'
+                sh '''
+                    mkdir -p allure-results
+
+                    docker run --rm \
+                    -v $WORKSPACE/allure-results:/app/allure-results \
+                    pytest-framework
+                '''
             }
         }
     }
