@@ -9,4 +9,4 @@ RUN uv sync --frozen
 
 COPY . .
 
-CMD ["uv", "run", "pytest", "-v", "--alluredir==/app/allure-results"]
+CMD ["uv", "run", "pytest", "-v", "--alluredir=/app/allure-results"]
