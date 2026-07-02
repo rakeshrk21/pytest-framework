@@ -19,6 +19,7 @@ wheels/
 .coverage.*
 coverage.xml
 htmlcov/
+allure-results/
 
 # Tool caches
 .ruff_cache/

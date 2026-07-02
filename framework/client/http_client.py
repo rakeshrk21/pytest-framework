@@ -14,8 +14,8 @@ from requests import Response
 from framework.config.settings import BASE_URL
 
 class HttpClient:
-    def __init__(self, timeout=10):
-        self.base_url = BASE_URL
+    def __init__(self, timeout: int = 10):
+        self.base_url = BASE_URL.rstrip("/")
         self.session = requests.Session()
         self.timeout = timeout
 
@@ -34,7 +34,7 @@ class HttpClient:
     ) -> Response:
         return self.session.request(
             method=method,
-            url=self.base_url + path,
+            url=f"{self.base_url}/{path.lstrip('/')}",
             timeout=self.timeout,
             json=json,
             **kwargs

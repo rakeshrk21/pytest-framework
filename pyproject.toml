@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "allure-pytest>=2.16.0",
     "python-dotenv>=1.2.2",
     "requests>=2.34.2",
 ]
@@ -17,3 +18,8 @@ dev = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "regression: Regression tests",
+    "smoke: Smoke tests",
+    "api: API tests",
+]
